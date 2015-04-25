@@ -66,8 +66,8 @@ And then :
 
 ## Remarks
 
-see http://www.icg.tugraz.at/courses/ARVU/install.pdf
-ROS tutorial http://wiki.ros.org/ROS/Tutorials
+* see http://www.icg.tugraz.at/courses/ARVU/install.pdf
+* ROS tutorial http://wiki.ros.org/ROS/Tutorials
 
 ## Notes run
 Before using a ros make or run, from package_dir do :
