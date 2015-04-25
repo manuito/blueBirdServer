@@ -15,6 +15,7 @@ Web-Service, LSD SLAM interrogation and model rescaling
 Run :
 
     sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
+    sudo apt-get update
     sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
     sudo apt-get install ros-indigo-desktop-full ros-indigo-ros-base
     sudo rosdep init
