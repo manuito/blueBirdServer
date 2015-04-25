@@ -42,6 +42,7 @@ Run :
     cd ~/rosbuild_ws/package_dir
     export ROS_PACKAGE_PATH=$ROS_PACKAGE_PAT:`pwd`
     git clone https://github.com/tum-vision/lsd_slam.git lsd_slam
+    cd ~/rosbuild_ws/package_dir
     rosmake lsd_slam
     sudo –s 
     roscore
