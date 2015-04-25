@@ -92,6 +92,24 @@ And then, on an other terminal tab :
     cd ~/rosbuild_ws/package_dir
     rosbag play ./LSD_room.bag
 
+## Script demo !!!
+
+### Prerequisites 
+
+You need a user "demo" with /home/demo as home folder
+
+You need to allow sudo without password for him : 
+
+    sudo visudo
+    # search for 
+    %admin ALL=(ALL) ALL
+    # and update it like 
+    %admin ALL=(ALL) NOPASSWD: ALL
+
+Some packages to install :
+
+    sudo apt-get install Imagemagick
+
 ## Remarks
 
 * see http://www.icg.tugraz.at/courses/ARVU/install.pdf
@@ -109,7 +127,7 @@ Before using a ros make or run, from package_dir do :
     cd ~/
     mkdir pilot
     git clone https://github.com/robotika/katarina.git
-    pip install 
+    pip install flask
     
 ### See also
 
