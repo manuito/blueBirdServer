@@ -30,7 +30,6 @@ Run :
 
 Run :
 
-    sudo apt-get install python-rosinstall
     mkdir ~/rosbuild_ws
     cd ~/rosbuild_ws
     rosws init . /opt/ros/indigo
@@ -44,7 +43,8 @@ Run :
     export ROS_PACKAGE_PATH=$ROS_PACKAGE_PAT:`pwd`
     git clone https://github.com/tum-vision/lsd_slam.git lsd_slam
     rosmake lsd_slam
-    sudo –s roscore
+    sudo –s 
+    roscore
 
 ### 3/ Start demo
 
