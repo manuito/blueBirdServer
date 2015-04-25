@@ -101,3 +101,16 @@ And then, on an other terminal tab :
 Before using a ros make or run, from package_dir do :
 
     export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:`pwd`
+
+
+## Python stack
+
+    sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev python-pip libopencv-dev libcv-dev python-pygame
+    cd ~/
+    mkdir pilot
+    git clone https://github.com/robotika/katarina.git
+    pip install 
+    
+### See also
+
+https://github.com/robotika/katarina
