@@ -44,12 +44,12 @@ Run :
     git clone https://github.com/tum-vision/lsd_slam.git lsd_slam
     cd ~/rosbuild_ws/package_dir
     rosmake lsd_slam
-    sudo –s 
+    sudo su – 
     roscore
 
-### 3/ Start demo
+### 3/ First demo start
 
-Need to have download first the bag.zip file and unziped it
+Need to have downloaded first the bag.zip file and unziped it
 
 Run :
 
@@ -64,7 +64,33 @@ From an other terminal :
 
 And then :
 
-    rosbag play ~/LSD_room.bag
+    rosbag play ./LSD_room.bag
+
+## Other demo launch
+
+When you start again LSD SLAM from an existing install, follow these steps
+
+In first terminal
+
+    cd ~/rosbuild_ws/package_dir
+    export ROS_PACKAGE_PATH=$ROS_PACKAGE_PAT:`pwd`
+    sudo su – 
+    roscore
+
+Open a second tab, and do
+
+    cd ~/rosbuild_ws/package_dir
+    rosrun lsd_slam_viewer viewer
+
+Open a third tab, and do
+
+    cd ~/rosbuild_ws/package_dir
+    rosrun lsd_slam_core live_slam image:=/image_raw camera_info:=/camera_info
+
+And then, on an other terminal tab :
+
+    cd ~/rosbuild_ws/package_dir
+    rosbag play ./LSD_room.bag
 
 ## Remarks
 
