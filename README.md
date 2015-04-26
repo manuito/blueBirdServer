@@ -14,8 +14,7 @@ check scripts in demos folder
 
 ### 0/ Clone in home/demo
 
-> If required, create demo user
-> Git clone this project, keep its name unmodified
+> If required, create demo user. Then Git clone this project, and keep its name unmodified
 
 ### 1/ Install ROS
 
