@@ -105,20 +105,14 @@ You need to allow sudo without password for him :
     %admin ALL=(ALL) ALL
     # and update it like 
     %admin ALL=(ALL) NOPASSWD: ALL
-
+    
 Some packages to install :
 
-    sudo apt-get install Imagemagick
-
-## Remarks
-
-* see http://www.icg.tugraz.at/courses/ARVU/install.pdf
-* ROS tutorial http://wiki.ros.org/ROS/Tutorials
-
-## Notes run
-Before using a ros make or run, from package_dir do :
-
-    export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:`pwd`
+    sudo apt-get install Imagemagick 
+    ## Should be necessary only with ubuntu 14.04
+    sudo add-apt-repository ppa:kirillshkrogalev/ffmpeg-next && sudo apt-get update -qq
+    sudo apt-get update
+    sudo apt-get install ffmpeg
 
 
 ## Python stack
@@ -128,7 +122,22 @@ Before using a ros make or run, from package_dir do :
     mkdir pilot
     git clone https://github.com/robotika/katarina.git
     pip install flask
-    
+        
+        
+        
+## Other remarks
+
+### Some guides about ROS
+
+* see http://www.icg.tugraz.at/courses/ARVU/install.pdf
+* ROS tutorial http://wiki.ros.org/ROS/Tutorials
+
+### Notes run
+
+Before using a ros make or run, from package_dir do :
+
+    export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:`pwd`
+
 ### See also
 
 https://github.com/robotika/katarina
