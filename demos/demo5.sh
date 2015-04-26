@@ -21,7 +21,7 @@ $SERVER_DIR/slam/scripts/process/start_live_stack.sh
 
 echo "2] Start to load converted pictures process in SLAM"
 ## params are : cmd <dataset_folder> <calib_cfg> <framerate> 
-$SERVER_DIR/slam/scripts/load/load_dataset.sh 0015 FOV 4
+$SERVER_DIR/slam/scripts/load/load_dataset.sh 0017 FOV 4
 
 read -p "---- demo is running, press space to close it => 1st check! -----"
 read -p "---- demo is still running, press space to close it => 2nd check! -----"
