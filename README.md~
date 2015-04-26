@@ -1,10 +1,6 @@
 # blueBirdServer
 Complete server tools for LSD SLAM interrogation and model rescaling, with associated python drone pilot stack
 
-## To see demos :
-
-check scripts in demos folder
-
 ## Prequisite : 
 
 * Ubuntu 14.04
