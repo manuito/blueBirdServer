@@ -12,6 +12,11 @@ check scripts in demos folder
 
 ## Install process
 
+### 0/ Clone in home/demo
+
+> If required, create demo user
+> Git clone this project, keep its name unmodified
+
 ### 1/ Install ROS
 
 (Process from http://wiki.ros.org/indigo/Installation/Ubuntu)
