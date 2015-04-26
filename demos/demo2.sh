@@ -27,3 +27,6 @@ read -p "---- demo is still running, press space to close it => Last check! ----
 
 echo "3] Stop everything"
 $SERVER_DIR/demos/stop_clean.sh
+read -p "---- confirm to quit demo. Use demos/stop_clean.sh after demo to cleanup ROS -----"
+sudo $SERVER_DIR/demos/stop_clean.sh
+

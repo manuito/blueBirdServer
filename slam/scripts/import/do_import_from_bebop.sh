@@ -12,6 +12,7 @@ mkdir $CTRL_THBD_DIR
 mkdir $CTRL_THBD_DIR/prev
 mkdir $CTRL_THBD_DIR/cur
 
+rm -rf $DEST_DIR
 mkdir $DEST_DIR
 
 ## Init ref
@@ -23,7 +24,7 @@ do
 	cd $CTRL_THBD_DIR/cur
 	wget --quiet --no-parent --recursive --level=1 --no-directories ftp://192.168.42.1/internal_000/Bebop_Drone/thumb/
  
-	DIFF_LIST="$(diff --brief -r $CTRL_THBD_DIR/prev/ $CTRL_THBD_DIR/cur/)"
+	DIFF_LIST="$(diff --brief $CTRL_THBD_DIR/cur $CTRL_THBD_DIR/prev | cut -d " " -f 4)"
 	rm -rf $CTRL_THBD_DIR/prev
 	mv $CTRL_THBD_DIR/cur $CTRL_THBD_DIR/prev
 	mkdir $CTRL_THBD_DIR/cur	

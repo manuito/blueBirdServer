@@ -6,6 +6,6 @@ sudo echo "now it's ok"
 
 $SERVER_DIR/slam/scripts/process/launch_roscore.sh&
 sleep 5 ; echo "Roscore loaded"
-$SERVER_DIR/slam/scripts/process/launch_viewer.sh&
+sudo $SERVER_DIR/slam/scripts/process/launch_viewer.sh&
 $SERVER_DIR/slam/scripts/process/repeat.check.sh&
 echo "statup done !"
