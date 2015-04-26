@@ -2,4 +2,4 @@
 
 SERVER_DIR=/home/demo/blueBirdServer
 echo "start roscore service"
-sudo su -l -c 'source $SERVER_DIR/slam/rosbuild_ws/setup.bash && roscore'
+sudo su -l -c 'source /home/demo/blueBirdServer/slam/rosbuild_ws/setup.bash && roscore'

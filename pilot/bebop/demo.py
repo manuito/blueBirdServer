@@ -52,14 +52,6 @@ def videoCallback( frame, robot=None, debug=False ):
     
 
 
-def demo0( drone ):
-    print "Follow 2-color cap ..."
-    drone.videoCbk = videoCallback
-    drone.videoEnable()
-    for i in xrange(1000):
-        print i,
-        drone.update( cmd=None )
-
 
 def demo( drone ):
     print "Follow 2-color cap ..."

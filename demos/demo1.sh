@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SERVER_DIR=/home/demo/blueBirdServer
-FTP_LOCAL_FOLDER=/tmp/demo1-$(date +%s)
+FTP_LOCAL_FOLDER="/tmp/demo_1"
 
 ## Protect against interactive sudo check :
 sudo echo "sudo should be ok for now"
@@ -26,10 +26,10 @@ echo "2] Start FTP picture stream"
 $SERVER_DIR/slam/scripts/import/start_import_from_bebop.sh $FTP_LOCAL_FOLDER
 
 echo "3] Launch SLAM processes"
-$SERVER_DIR/slam/scripts/process/start_live_stack.sh
+$SERVER_DIR/slam/scripts/process/start_live_stack.sh 
 
-echo "4] Convert current pictures after 5 seconds"
-sleep 5 ; $SERVER_DIR/slam/scripts/import/import_jpgs.sh $FTP_LOCAL_FOLDER
+echo "4] Convert current pictures after 15 seconds"
+sleep 15 ; $SERVER_DIR/slam/scripts/import/import_jpgs.sh $FTP_LOCAL_FOLDER
 
 echo "5] Start to load converted pictures process in SLAM"
 $SERVER_DIR/slam/scripts/load/load_dataset.sh $(ls -t $SERVER_DIR/slam/load/raw | head -n 1) BEBOP 4
@@ -39,6 +39,4 @@ read -p "---- demo is still running, press space to close it => 2nd check! -----
 read -p "---- demo is still running, press space to close it => Last check! -----"
 
 echo "6] Stop everything"
-$SERVER_DIR/pilot/stop_bebop.sh
-$SERVER_DIR/slam/scripts/import/stop_import_from_bebop.sh
-$SERVER_DIR/slam/scripts/process/stop_live_stack.sh
+$SERVER_DIR/demos/stop_clean.sh

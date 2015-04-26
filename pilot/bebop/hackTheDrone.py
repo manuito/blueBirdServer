@@ -1,9 +1,12 @@
 #!/usr/bin/python
 """
-  HackTheDrone pilot using katarina project from https://github.com/robotika/katarina
+  HackTheDrone pilot using katarina project from katarina  
+  usage:
+       ./hackTheDrone.py <task> [<prg> <metalog> [<F>]]
 """
 import sys
 import cv2
+import time
 
 from bebop import Bebop
 from commands import movePCMDCmd
@@ -50,27 +53,24 @@ def videoCallback( frame, robot=None, debug=False ):
     
 
 def manual( drone ):
-
-    print "Start drone with activated camera for manual control"
-    drone.manualControl = True
-    drone.videoEnable()
-
-    try:
-        # We want 5 pictures every seconds (if possible ?)
-        while True:
-            drone.takePicture()
-            sleep(0.2)
-            # Need to be killed...
-        
-    except: 
-        print "Something wrong occured. Just cancel all drone commands"
-        if drone.flyingState is None or drone.flyingState == 1: # taking off
-            drone.emergency()
-        drone.land()
-
+     print "Start drone with activated camera for manual control"
+     drone.manualControl = True
+     drone.videoEnable()
+ 
+     try:
+         # We want 5 pictures every seconds (if possible ?)
+         while True:
+             drone.takePicture()
+             time.sleep(0.2)
+             # Need to be killed...
+         
+     except: 
+         print "Something wrong occured. Just cancel all drone commands"
+         if drone.flyingState is None or drone.flyingState == 1: # taking off
+             drone.emergency()
+         drone.land()
 
 def fly( drone ):
-
     print "Going to go for a small trip ..."
 #    drone.videoCbk = videoCallback
     drone.videoEnable()
@@ -78,14 +78,20 @@ def fly( drone ):
         drone.trim()
         drone.takeoff()
         drone.takePicture()
+        speed = 5
+        drone.update( cmd=movePCMDCmd( True, 0, speed, 0, 0 ) )
         drone.flyToAltitude( 1.5 )
-        speed = 20
-        # Move forward        
-        for i in xrange(10):
-            print i,
-            robot.update( cmd=movePCMDCmd( True, 0, speed, 0, 0 ) )
+        drone.wait( 2.0 )
+        drone.update( cmd=movePCMDCmd( True, 0, speed, 0, 0 ) )
+        drone.flyToAltitude( 0.5 )
+        drone.takePicture()
+        drone.wait( 2.0 )
+        drone.update( cmd=movePCMDCmd( True, 0, speed, 0, 0 ) )
+        drone.flyToAltitude( 1 )
+        drone.wait( 2.0 )
+        drone.takePicture()
         # Stop
-        robot.update( cmd=movePCMDCmd( True, 0, 0, 0, 0 ) )
+        drone.update( cmd=movePCMDCmd( True, 0, 0, 0, 0 ) )
         drone.land()
     except ManualControlException, e:
         print
@@ -94,34 +100,27 @@ def fly( drone ):
             drone.emergency()
         drone.land()
 
-if __name__ == "__fly__":
-    if len(sys.argv) < 2:
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
         print __doc__
         sys.exit(2)
     metalog=None
-    if len(sys.argv) > 2:
-        metalog = MetaLog( filename=sys.argv[2] )
-    if len(sys.argv) > 3 and sys.argv[3] == 'F':
+    if len(sys.argv) > 3:
+        metalog = MetaLog( filename=sys.argv[3] )
+    if len(sys.argv) > 4 and sys.argv[4] == 'F':
         disableAsserts()
 
     drone = Bebop( metalog=metalog )
-    fly( drone )
+    
+    if sys.argv[2] == "fly":
+        print "Start flight program"
+        fly( drone )
+    if sys.argv[2] == "manual":
+        print "Start manual program"
+        manual( drone )
+
     print "Battery:", drone.battery
 
-
-if __name__ == "__manual__":
-    if len(sys.argv) < 2:
-        print __doc__
-        sys.exit(2)
-    metalog=None
-    if len(sys.argv) > 2:
-        metalog = MetaLog( filename=sys.argv[2] )
-    if len(sys.argv) > 3 and sys.argv[3] == 'F':
-        disableAsserts()
-
-    drone = Bebop( metalog=metalog )
-    manual( drone )
-    print "Battery:", drone.battery
 
 # vim: expandtab sw=4 ts=4 
 

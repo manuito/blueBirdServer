@@ -26,4 +26,4 @@ read -p "---- demo is still running, press space to close it => 2nd check! -----
 read -p "---- demo is still running, press space to close it => Last check! -----"
 
 echo "3] Stop everything"
-$SERVER_DIR/slam/scripts/process/stop_live_stack.sh
+$SERVER_DIR/demos/stop_clean.sh

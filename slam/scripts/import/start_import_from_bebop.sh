@@ -3,5 +3,5 @@
 SERVER_DIR=/home/demo/blueBirdServer
 DEST_DIR=$1
 
-$SERVER_DIR/slam/scripts/import/do_import_from_bebop.sh&
+$SERVER_DIR/slam/scripts/import/do_import_from_bebop.sh $DEST_DIR&
 
