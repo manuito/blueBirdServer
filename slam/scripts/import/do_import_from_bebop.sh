@@ -6,13 +6,9 @@ DEST_DIR=$1
 CTRL_THBD_DIR=/tmp/ftp_thumb_ctrl
 
 echo "check and create folders if required"
-rm -rf $CTRL_THBD_DIR
-
 mkdir $CTRL_THBD_DIR
 mkdir $CTRL_THBD_DIR/prev
 mkdir $CTRL_THBD_DIR/cur
-
-rm -rf $DEST_DIR
 mkdir $DEST_DIR
 
 ## Init ref
@@ -39,4 +35,6 @@ do
     sleep 1
 done
 
+rm -rf $DEST_DIR
+rm -rf $CTRL_THBD_DIR
 
