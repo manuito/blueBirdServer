@@ -1,2 +1,0 @@
-cd /home/demo/rosbuild_ws/package_dir
-rosrun lsd_slam_viewer viewer

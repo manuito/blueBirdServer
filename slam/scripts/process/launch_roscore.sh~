@@ -1,2 +1,0 @@
-echo "start roscore service"
-sudo su -l -c 'source /home/demo/rosbuild_ws/setup.bash && roscore'

@@ -1,4 +1,0 @@
-PLY_FILE_LOC=/home/demo/rosbuild_ws/package_dir/lsd_slam/lsd_slam_viewer/pc.ply
-PLY_LOAD_CMD=/home/demo/pilot/scripts/load_ply.sh
-
-test -f $PLY_FILE_LOC && $PLY_LOAD_CMD

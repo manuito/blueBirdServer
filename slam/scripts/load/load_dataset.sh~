@@ -1,6 +1,0 @@
-/home/demo/pilot/scripts/set_env.sh
-source /home/demo/rosbuild_ws/setup.bash
-
-/home/demo/pilot/scripts/launch_slam_with_dataset_mode.sh $1 $2 $3 
-
-

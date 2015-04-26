@@ -1,7 +1,0 @@
-echo "start SLAM CORE with image dataset"
-
-/home/demo/pilot/scripts/set_env.sh
-source /home/demo/rosbuild_ws/setup.bash
-
-cd /home/demo/rosbuild_ws/package_dir
-rosrun /home/demo/rosbuild_ws/package_dir/lsd_slam/lsd_slam_core dataset_slam _files:=/home/demo/pilot/load/dataset/img/$1 _hz:=$3 _calib:=/home/demo/pilot/load/calibs/$2_calib.cfg
